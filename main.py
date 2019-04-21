@@ -6,9 +6,13 @@ import os
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
+# Route for displaying the form
+
 @app.route('/signup')
 def display_user_signup_form():
     return render_template('main.html')
+
+# Validations
 
 def empty_val(x):
     if x:
@@ -46,24 +50,34 @@ def email_period_more_than_one(x):
     else:
         return False
 
+# Route to validation of the form
+
 @app.route("/signup", methods=['POST'])
 def user_signup_complete():
+
+# Variables from forma input
 
     username = request.form['username']
     password = request.form['password']
     password_validate = request.form['password_validate']
     email = request.form['email']
 
+# Error messages 
+
     username_error = ""
     password_error = ""
     password_validate_error = ""
     email_error = ""
+
+# For multiple errors
 
 
     err_required = "Required field"
     err_reenter_pw = "Please re-enter password"
     err_char_count = "must be between 3 and 20 characters"
     err_no_spaces = "must not contain spaces"
+
+# Validation for Password
 
     if not empty_val(password):
         password_error = err_required
@@ -81,11 +95,15 @@ def user_signup_complete():
             password_validate = ''
             password_validate_error = err_reenter_pw
 
+    # Validation for Second Password
+
         if password_validate != password:
             password_validate_error = "Passwords must match"
             password = ''
             password_validate = ''
             password_error = 'Passwords must match'
+
+    # Username Validation
 
         if not empty_val(username):
             username_error = err_required
@@ -106,6 +124,8 @@ def user_signup_complete():
                 password_validate = ''
                 password_error = err_reenter_pw
                 password_validate_error = err_reenter_pw
+
+    # Validation for Email
 
             if empty_val(email):
                 if not char_length(email):
@@ -152,6 +172,8 @@ def user_signup_complete():
             else:
                 return render_template('main.html', username_error=username_error, username=username)
         
+# Redirecting for Welcome Page
+
 @app.route('/welcome')
 def valid_signup():
     username = request.args.get('username')
