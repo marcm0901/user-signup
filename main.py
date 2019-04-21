@@ -95,7 +95,7 @@ def user_signup_complete():
             password_validate = ''
             password_validate_error = err_reenter_pw
 
-    # Validation for Second Password
+# Validation for Second Password
 
         if password_validate != password:
             password_validate_error = "Passwords must match"
@@ -103,7 +103,7 @@ def user_signup_complete():
             password_validate = ''
             password_error = 'Passwords must match'
 
-    # Username Validation
+# Username Validation
 
         if not empty_val(username):
             username_error = err_required
@@ -125,7 +125,7 @@ def user_signup_complete():
                 password_error = err_reenter_pw
                 password_validate_error = err_reenter_pw
 
-    # Validation for Email
+# Validation for Email
 
             if empty_val(email):
                 if not char_length(email):
