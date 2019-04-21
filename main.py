@@ -3,6 +3,9 @@ from flask import Flask, request, redirect, render_template
 import cgi
 import os
 
+app = Flask(__name__)
+app.config['DEBUG'] = True
+
 @app.route('/signup')
 def display_user_signup_form():
     return render_template('main.html')
