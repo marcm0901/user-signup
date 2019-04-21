@@ -10,6 +10,8 @@ body {
     width: 30%;
 }
 
+/* form */
+
 form {
     background-color: azure;
     margin: auto;
@@ -25,6 +27,8 @@ form {
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
 }
 
+* boxes move to next line */
+
 .form_label {
     display: block;
 }
@@ -35,6 +39,8 @@ h1 {
     padding-left: 0.5rem;
 }
 
+/* submit button */
+
 input {
     width: 95%;
     margin: auto;
@@ -42,6 +48,8 @@ input {
     border: 1px solid black;
     font-size: 1rem;
 }
+
+/* errors msg */
 
 .error {
     color: red;
@@ -53,6 +61,8 @@ input {
 .error:last-of-type {
     margin-bottom: 1.5rem;
 }
+
+/* submit button*/
 
 .submit {
     width: auto;
