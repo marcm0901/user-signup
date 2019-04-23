@@ -54,8 +54,9 @@ def email_period_more_than_one(x):
 
 @app.route("/signup", methods=['POST'])
 def user_signup_complete():
+    
 
-# Variables from forma input
+# Variables from form input
 
     username = request.form['username']
     password = request.form['password']
@@ -171,7 +172,14 @@ def user_signup_complete():
                 return redirect('/welcome?username={0}'.format(username))
             else:
                 return render_template('main.html', username_error=username_error, username=username)
-        
+
+    if not username_error and not password_error and not password_validate_error and not email_error:
+        username = username
+        return redirect('/welcome?username={0}'.format(username))
+    else:
+        return render_template('main.html', username_error=username_error, username=username)
+
+
 # Redirecting for Welcome Page
 
 @app.route('/welcome')
