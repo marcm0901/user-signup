@@ -108,9 +108,9 @@ def user_signup_complete():
 
     if not empty_val(username):
         username_error = err_required
-         password = ''
-         password_validate = ''
-         password_error = err_reenter_pw
+        password = ''
+        password_validate = ''
+        password_error = err_reenter_pw
         password_validate_error = err_reenter_pw
     elif not char_length(username):
         username_error = "Username " + err_char_count
