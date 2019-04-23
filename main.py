@@ -128,11 +128,11 @@ def user_signup_complete():
 
 # Validation for Email
 
-     if empty_val(email):
+    if empty_val(email):
         if not char_length(email):
             email_error = "Email " + err_char_count
             password = ''
-             password_validate = ''
+            password_validate = ''
             password_error = err_reenter_pw
             password_validate_error = err_reenter_pw
         elif not email_at_symbol(email):
