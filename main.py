@@ -10,7 +10,7 @@ app.config['DEBUG'] = True
 
 @app.route('/signup')
 def display_user_signup_form():
-    return render_template('main.html', 'username_error=username_error', 'username=username', 'password_error=password_error', 'password_validate=password_validate')
+    return render_template('main.html', username_error=username_error, username=username, password_error=password_error, password_validate=password_validate)
 
 # Validations
 
