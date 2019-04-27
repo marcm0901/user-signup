@@ -10,7 +10,7 @@ app.config['DEBUG'] = True
 
 @app.route('/signup')
 def display_user_signup_form():
-    return render_template('main.html')
+    return render_template('main.html', 'username_error=username_error', 'username=username', 'password_error=password_error', 'password_validate=password_validate')
 
 # Validations
 
@@ -99,10 +99,10 @@ def user_signup_complete():
 # Validation for Second Password
 
     if password_validate != password:
-        password_validate_error = "Passwords must match"
-        password = ''
-        password_validate = ''
-        password_error = 'Passwords must match'
+       password_validate_error = "Passwords must match"
+       password = ''
+       password_validate = ''
+       password_error = 'Passwords must match'
 
 # Username Validation
 
