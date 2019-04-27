@@ -12,9 +12,9 @@ app.config['DEBUG'] = True
 def display_user_signup_form():
     username_error = request.args.get('username_error')
     username = request.args.get('username')
-    password_error = request.args.get(password_error)
+    password_error = request.args.get('password_error')
     password_validate = request.args.get('password_validate')
-    return render_template('main.html', username_error, username=username, password_error=password_error, password_validate=password_validate)
+    return render_template('main.html', username_error=username_error, username=username, password_error=password_error, password_validate=password_validate)
 
 # Validations
 
